@@ -1,6 +1,4 @@
-package ClassTest;
-
-import java.sql.SQLOutput;
+package classtest;
 
 /**
  * @author yanglin

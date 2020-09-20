@@ -1,6 +1,5 @@
-package LockTest;
+package locktest;
 
-import javax.sound.midi.Soundbank;
 import java.util.concurrent.*;
 
 /**

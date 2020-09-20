@@ -1,4 +1,4 @@
-package LockTest;
+package locktest;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;

@@ -1,4 +1,4 @@
-package LockTest;
+package locktest;
 
 import java.util.concurrent.*;
 

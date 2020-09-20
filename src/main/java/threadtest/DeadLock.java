@@ -1,6 +1,4 @@
-package ThreadTest;
-
-import java.awt.*;
+package threadtest;
 
 /**
  * @author yanglin

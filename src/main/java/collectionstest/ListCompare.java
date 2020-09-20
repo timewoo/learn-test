@@ -1,4 +1,4 @@
-package CollectionsTest;
+package collectionstest;
 
 import java.util.*;
 

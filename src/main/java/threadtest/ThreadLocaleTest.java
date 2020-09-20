@@ -1,10 +1,7 @@
-package ThreadTest;
+package threadtest;
 
 import java.text.SimpleDateFormat;
 import java.util.Random;
-import java.util.concurrent.*;
-import java.util.concurrent.locks.AbstractQueuedSynchronizer;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author yanglin
