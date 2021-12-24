@@ -15,23 +15,40 @@ public class ThreadPoolTest {
 
     private static final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 10, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue<>(1), new MyThreadFactory().setNameFormat("子线程").build());
 
-    public static void main(String[] args) throws InterruptedException {
-//        while (true){
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+//        while (true) {
 //            try {
 //                exeOrSub(System.currentTimeMillis());
-//            }catch (Exception e){
+//            } catch (Exception e) {
 //                e.printStackTrace();
 //            }
 //            Thread.sleep(2000);
-        List<Future<?>> futures = getFutures();
-        futures.forEach(a -> {
+//        }
+//        List<Future<?>> futures = getFutures();
+//        futures.forEach(a -> {
+//            try {
+//                System.out.println(a.get());
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            } catch (ExecutionException e) {
+//                e.printStackTrace();
+//            }
+//        });
+        for (int i = 0; i < 10; i++) {
+            catchException(i);
+        }
+//        Thread.sleep(5000);
+//        threadPoolExecutor.shutdown();
+    }
+
+    public static void catchException(Integer index) throws ExecutionException, InterruptedException {
+        threadPoolExecutor.execute(() -> {
             try {
-                System.out.println(a.get());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
+                System.out.println(2 / index);
+            }catch (Exception e){
+
             }
+
         });
     }
 

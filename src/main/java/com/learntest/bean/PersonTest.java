@@ -12,6 +12,11 @@ public class PersonTest {
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("beans.xml");
         Person person = classPathXmlApplicationContext.getBean("person", Person.class);
         System.out.println(person);
-        classPathXmlApplicationContext.registerShutdownHook();
+//        classPathXmlApplicationContext.start();
+//        classPathXmlApplicationContext.stop();
+//        classPathXmlApplicationContext.refresh();
+//        classPathXmlApplicationContext.close();
+        classPathXmlApplicationContext.stop();
+//        classPathXmlApplicationContext.registerShutdownHook();
     }
 }

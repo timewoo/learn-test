@@ -15,6 +15,7 @@ public class Test {
         Integer b = 1;
         Long c= 1L;
         Integer d = 1;
+
         System.out.println(a.equals(b+c));
         System.out.println(a.equals(b+d));
     }

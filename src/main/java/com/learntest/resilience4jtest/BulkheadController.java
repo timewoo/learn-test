@@ -1,11 +1,6 @@
-package com.learntest.circuitbreaker.resilience4jtest;
+package com.learntest.resilience4jtest;
 
-import com.sun.org.apache.regexp.internal.RE;
 import io.github.resilience4j.bulkhead.*;
-import io.github.resilience4j.core.CompletionStageUtils;
-import io.github.resilience4j.core.SupplierUtils;
-import io.vavr.CheckedFunction0;
-import io.vavr.concurrent.Future;
 import io.vavr.control.Try;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,7 +36,7 @@ public class BulkheadController {
 //        return aTry.get();
         ThreadPoolBulkhead bulkhead = threadPoolBulkheadRegistry.bulkhead("bulkhead");
         Supplier<CompletionStage<String>> supplier = ThreadPoolBulkhead.decorateSupplier(bulkhead, () -> number.toString());
-        Try<CompletionStage<String>> recover = Try.ofSupplier(supplier).recover(throwable ->CompletableFuture.supplyAsync(()->"restdthgfjvbjn"));
+        Try<CompletionStage<String>> recover = Try.ofSupplier(supplier).recover(throwable ->CompletableFuture.supplyAsync(()->"并发限流"));
         return recover.get();
     }
 }

@@ -1,12 +1,11 @@
-package com.learntest.circuitbreaker.resilience4jtest;
+package com.learntest.resilience4jtest;
 
-import com.learntest.circuitbreaker.exception.MyException;
+import com.learntest.resilience4jtest.exception.MyException;
 import io.github.resilience4j.retry.Retry;
 import io.github.resilience4j.retry.RetryConfig;
 import io.github.resilience4j.retry.RetryRegistry;
 import io.vavr.CheckedFunction0;
 import io.vavr.control.Try;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

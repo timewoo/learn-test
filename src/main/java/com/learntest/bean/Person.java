@@ -1,9 +1,12 @@
 package com.learntest.bean;
 
 import lombok.ToString;
+import org.checkerframework.checker.signature.qual.FieldDescriptor;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 /**
@@ -45,6 +48,11 @@ public class Person implements DisposableBean, InitializingBean, BeanFactoryAwar
         System.out.println("DisposableBean");
     }
 
+    @PostConstruct
+    public void anInit(){
+        System.out.println("anInit");
+    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("InitializingBean");
@@ -56,5 +64,10 @@ public class Person implements DisposableBean, InitializingBean, BeanFactoryAwar
 
     public void myDestory(){
         System.out.println("myDestory");
+    }
+
+    @PreDestroy
+    public void anDestory(){
+        System.out.println("anDestory");
     }
 }

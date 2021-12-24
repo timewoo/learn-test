@@ -1,6 +1,6 @@
-package com.learntest.circuitbreaker.resilience4jtest;
+package com.learntest.resilience4jtest;
 
-import com.learntest.circuitbreaker.exception.MyException;
+import com.learntest.resilience4jtest.exception.MyException;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;

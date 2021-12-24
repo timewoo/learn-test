@@ -1,4 +1,4 @@
-package com.learntest.circuitbreaker.resilience4jtest;
+package com.learntest.resilience4jtest;
 
 import io.github.resilience4j.ratelimiter.RateLimiter;
 import io.github.resilience4j.ratelimiter.RateLimiterConfig;

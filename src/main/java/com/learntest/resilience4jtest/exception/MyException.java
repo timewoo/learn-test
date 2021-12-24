@@ -1,4 +1,4 @@
-package com.learntest.circuitbreaker.exception;
+package com.learntest.resilience4jtest.exception;
 
 /**
  * @author yanglin
