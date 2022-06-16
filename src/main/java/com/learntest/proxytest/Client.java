@@ -14,15 +14,21 @@ import java.lang.reflect.Proxy;
 public class Client {
 
     public static void main(String[] args) {
-        Subject subject = new Target();
-        StaticProxy proxy = new StaticProxy(subject);
-        proxy.test();
+        staticProxy();
+        dynamicProxy();
+    }
 
+    public static void staticProxy(){
+        Subject subject = new Target();
+        StaticProxy staticProxy = new StaticProxy(subject);
+        staticProxy.test();
+    }
+
+    public static void dynamicProxy(){
         Target target = new Target();
         DynamicProxy dynamicProxy = new DynamicProxy(target);
-        ClassLoader classLoader = subject.getClass().getClassLoader();
-        Subject subject1 = (Subject) Proxy.newProxyInstance(classLoader,new Class[]{Subject.class},dynamicProxy);
-        subject1.test();
-
+        ClassLoader classLoader = target.getClass().getClassLoader();
+        Subject subject = (Subject) Proxy.newProxyInstance(classLoader,new Class[]{Subject.class},dynamicProxy);
+        subject.test();
     }
 }

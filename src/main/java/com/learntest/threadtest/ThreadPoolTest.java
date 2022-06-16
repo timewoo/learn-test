@@ -125,4 +125,17 @@ public class ThreadPoolTest {
 //        log.info("主线程执行");
 //        threadPoolExecutor.shutdown();
     }
+
+//    public static void checkHandler(Integer handler){
+//        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MICROSECONDS, new LinkedBlockingQueue<>());
+//        switch (handler){
+//            case 1:
+//                threadPoolExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+//            case 2:
+//                threadPoolExecutor.setRejectedExecutionHandler();
+//        }
+
+
+
+//    }
 }

@@ -32,16 +32,16 @@ public class RSAEncryption {
 
     public static void main(String[] args) throws IllegalBlockSizeException, BadPaddingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, IOException {
 //        String message = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().getEpochSecond()+" GET /dsns/AC000W027097195.json";
-        String message = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().getEpochSecond()+" 56d429cb628df6c80a8e7f0e9a7487ab 3c75973b ZBGW2-01-2-001";
+        String message = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().getEpochSecond()+" ed61bba015d6449aaf9b7a73853019f2 73d461bf ledevb-test-gw";
         Security.addProvider(new BouncyCastleProvider());
         String rsaPublicKeyHeader = "-----BEGIN RSA PUBLIC KEY-----\n";
         String rsaPublicKeyFooter = "\n-----END RSA PUBLIC KEY-----";
         String rsaPublicKeyString =
-                "MIIBCgKCAQEAh55b7EADrOyDwfrp9FaEXgs++D16ESl0atAZhiv8ViOzZ4tqYHMX/NxTqWxYc2hS" +
-                        "uku2lE4t7SZ2dFSGv8UdqlzyKF7H1P9bT0PCRQXDvwADjOedoAJ4zLsp9uJ16ZXLFesr5SB3Lmf3" +
-                        "s77hW23B4PqVyIyeb9D02ug7FZ5rDST/Fqj4jlu9GABMlkRJEBlVk3nyqdjsG+Axjr+/FssxPeJ2" +
-                        "e+j4cHFQQA4yE57JM9MePVvJA2q5oqdaaVuOephj7yVB26GmUkPJgwUlhqho2g0EFSNUqsJl5tSM" +
-                        "+hSV8koFwTImAX48vMJ8r8heQGDj4oqg3gZVBOufWTPqEXkzfwIDAQAB";
+                "MIIBCgKCAQEA6OoR3wlR6bXKFC55VzLrNjYIGxJ9g/vviVX10EADVfVjam34UJjwC8fbkHiu1ndv\n" +
+                        "Bz8PsSqEH7nzs0gJ77FKdHVqwJlzxud8VPibDWNGZHu8A5uFb8A6iVr2foFXnAk2RU+Y0GB5GzYV\n" +
+                        "Adpq9uNnkRQ/nJyxTohASm+qRR2WjkilxU6qEnfRFNpIKZUpfvnS7EwBHTKuCi2RGbFDos2TaO+P\n" +
+                        "gDcRSuHpcLg4fnKE4y0wvzd9PjDmh6tw8lc6WuOYYDleJdXDq4ITjcRMWBg9A9B0S0380V7Fal7r\n" +
+                        "USwBt1dmX5MALWsGH/rvzthHRSXeWizxuQsGjjIfVryU9KNd8wIDAQAB";
 //        String message = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().getEpochSecond()+" GET /dsns/AC000W027139906.json";
 //        String rsaPublicKeyString = "MIIBCgKCAQEAywC2gSsjLw0kEpKUyDZHeLSHP9Sm7q0K7SRxdKVndCdgMWR2wAyFI1YWHbva4epe4Uf3s/ZAe5LlpyoYdWrf1Wr59/UI9YT2j9Zm2hqBKRr8rAYNxYiRecOPgndloi4Tj/4o/z4bLI2UZm5mWaVUjtNvZZagfpTHWd1zAMqVE7pY1pwZJDfAKX7LVmqN4i0OAWo57/EkrYPz0o8k3B2nbk1VIx6h0kJgZLV6MHY4nVvMeoe7SGeZq/m10BSNX0ZImbKqR6WBM7jXNwd/34Qc6ZY1+t5zxWb8Ga+L8dUkIDv9wOjlP0pjlxKasSNfv/0mP+lLg7RkTIDg5C3upog83wIDAQAB";
         PEMParser pemParser = new PEMParser(new StringReader(rsaPublicKeyHeader +

@@ -1,9 +1,5 @@
 package com.learntest.threadtest;
 
-import org.apache.jute.Index;
-
-import javax.security.auth.login.Configuration;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -24,7 +20,7 @@ public class ReentrantLockTest {
                 try {
                     lock.lock();
                     test(index);
-                    if (index==2){
+                    if (index == 2) {
                         condition.signal();
                     }
                 } catch (InterruptedException e) {
@@ -33,14 +29,13 @@ public class ReentrantLockTest {
                     lock.unlock();
                 }
             }).start();
-
         }
 
     }
 
     public static void test(Integer index) throws InterruptedException {
         System.out.println("Thread " + index + " start");
-        if (index!=2){
+        if (index != 2) {
             condition.await(3000, TimeUnit.MILLISECONDS);
 //            condition.await();
         }

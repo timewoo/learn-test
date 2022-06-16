@@ -16,7 +16,7 @@ public class StaticProxy implements Subject {
 
     @Override
     public void test() {
-        System.out.println("proxy");
+        System.out.println("staticProxy");
         subject.test();
     }
 }
