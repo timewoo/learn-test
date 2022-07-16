@@ -1,5 +1,6 @@
 package com.learntest.bean;
 
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -10,6 +11,8 @@ public class PersonTest {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("beans.xml");
+        DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) classPathXmlApplicationContext.getBeanFactory();
+
         Person person = classPathXmlApplicationContext.getBean("person", Person.class);
         System.out.println(person);
 //        classPathXmlApplicationContext.start();

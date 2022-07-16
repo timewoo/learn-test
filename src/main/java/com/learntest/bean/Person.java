@@ -1,13 +1,15 @@
 package com.learntest.bean;
 
 import lombok.ToString;
-import org.checkerframework.checker.signature.qual.FieldDescriptor;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
 
 /**
  * @author yanglin
@@ -22,11 +24,11 @@ public class Person implements DisposableBean, InitializingBean, BeanFactoryAwar
 
     private String beanName;
 
-    public Person(){
+    public Person() {
         System.out.println("构造函数");
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         System.out.println("注入属性");
         this.name = name;
     }
@@ -49,7 +51,7 @@ public class Person implements DisposableBean, InitializingBean, BeanFactoryAwar
     }
 
     @PostConstruct
-    public void anInit(){
+    public void anInit() {
         System.out.println("anInit");
     }
 
@@ -58,16 +60,16 @@ public class Person implements DisposableBean, InitializingBean, BeanFactoryAwar
         System.out.println("InitializingBean");
     }
 
-    public void myInit(){
+    public void myInit() {
         System.out.println("myInit");
     }
 
-    public void myDestory(){
+    public void myDestory() {
         System.out.println("myDestory");
     }
 
     @PreDestroy
-    public void anDestory(){
+    public void anDestory() {
         System.out.println("anDestory");
     }
 }
