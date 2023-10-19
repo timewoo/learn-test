@@ -3,6 +3,7 @@ package com.learntest.base;
 
 import javax.sound.midi.Soundbank;
 import java.lang.module.ModuleDescriptor;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,11 +26,12 @@ public class Test {
 //
 //        System.out.println(a.equals(b+c));
 //        System.out.println(a.equals(b+d));
-        String inputVersion = "1.3.1";
-        List<String> orderList = List.of("0.0.0", "1.2.3", "1.3.2", "1.5.4", "2.0.10");
-        System.out.println(checkRangeOrder(inputVersion, orderList));
-        List<String> outOfOrderList = List.of("1.5.4", "2.0.10", "0.0.0", "1.3.2", "1.2.3");
-        System.out.println(checkRangeOutOfOrder(inputVersion,outOfOrderList));
+//        String inputVersion = "1.3.1";
+//        List<String> orderList = List.of("0.0.0", "1.2.3", "1.3.2", "1.5.4", "2.0.10");
+//        System.out.println(checkRangeOrder(inputVersion, orderList));
+//        List<String> outOfOrderList = List.of("1.5.4", "2.0.10", "0.0.0", "1.3.2", "1.2.3");
+//        System.out.println(checkRangeOutOfOrder(inputVersion,outOfOrderList));
+        swapValue(3,5);
     }
 
     public static String checkRangeOrder(String v, List<String> list) {
@@ -61,5 +63,16 @@ public class Test {
             }
         }
         return orderList.get(index);
+    }
+
+    public static void swapValue(Integer first,Integer seconds){
+        System.out.println("swap before:"+first+","+seconds);
+        first^=seconds;
+        System.out.println(first);
+        seconds^=first;
+        System.out.println(seconds);
+        first^=seconds;
+        System.out.println(first);
+        System.out.println("swap after:"+first+","+seconds);
     }
 }

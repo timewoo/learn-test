@@ -38,17 +38,17 @@ public class ThreadPoolTest {
             catchException(i);
         }
 //        Thread.sleep(5000);
-//        threadPoolExecutor.shutdown();
+        threadPoolExecutor.shutdown();
     }
 
     public static void catchException(Integer index) throws ExecutionException, InterruptedException {
-        threadPoolExecutor.execute(() -> {
-            try {
-                System.out.println(2 / index);
-            }catch (Exception e){
-
-            }
-
+        threadPoolExecutor.submit(() -> {
+//            try {
+//                System.out.println(2 / index);
+//            }catch (Exception e){
+//                System.out.println("error:"+e.getMessage());
+//            }
+            System.out.println(2 / index);
         });
     }
 

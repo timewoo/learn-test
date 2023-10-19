@@ -19,7 +19,7 @@ public class PersonTest {
 //        classPathXmlApplicationContext.stop();
 //        classPathXmlApplicationContext.refresh();
 //        classPathXmlApplicationContext.close();
-        classPathXmlApplicationContext.stop();
+//        classPathXmlApplicationContext.stop();
 //        classPathXmlApplicationContext.registerShutdownHook();
     }
 }

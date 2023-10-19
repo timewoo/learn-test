@@ -13,7 +13,7 @@ import java.util.Date;
 public class CronTest {
 
     public static void main(String[] args) {
-        CronExpression expression = new CronExpression("0 0/10 3-4 1/1 * ? ");
+        CronExpression expression = new CronExpression("0/5 1/1 3-4 1/1 * ? ");
         boolean flag = true;
         Date date = java.util.Date.from(LocalDateTime.now().toInstant(ZoneOffset.of("+8")));
         while (flag) {

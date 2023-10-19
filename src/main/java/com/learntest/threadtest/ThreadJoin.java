@@ -19,6 +19,7 @@ public class ThreadJoin {
             });
             thread.start();
             thread.join();
+            thread.wait();
 //            Thread.sleep(3000);
             System.out.println("主线程执行");
         }

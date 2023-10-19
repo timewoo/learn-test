@@ -2,8 +2,11 @@ package com.learntest.proxytest;
 
 import com.learntest.proxytest.implement.Target;
 import com.learntest.proxytest.interfaces.Subject;
+import com.learntest.proxytest.proxy.CglibProxy;
 import com.learntest.proxytest.proxy.DynamicProxy;
 import com.learntest.proxytest.proxy.StaticProxy;
+import net.bytebuddy.build.ToStringPlugin;
+import org.springframework.cglib.proxy.Enhancer;
 
 import java.lang.reflect.Proxy;
 
@@ -16,6 +19,7 @@ public class Client {
     public static void main(String[] args) {
         staticProxy();
         dynamicProxy();
+        cglibProxy();
     }
 
     public static void staticProxy(){
@@ -31,4 +35,14 @@ public class Client {
         Subject subject = (Subject) Proxy.newProxyInstance(classLoader,new Class[]{Subject.class},dynamicProxy);
         subject.test();
     }
+
+    public static void cglibProxy(){
+        CglibProxy cglibProxy = new CglibProxy();
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(Target.class);
+        enhancer.setCallback(cglibProxy);
+        Target target = (Target) enhancer.create();
+        target.test();
+    }
+
 }

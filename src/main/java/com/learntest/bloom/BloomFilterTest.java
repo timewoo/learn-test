@@ -8,6 +8,8 @@ import org.apache.tomcat.util.digester.DocumentProperties;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author yanglin
@@ -15,26 +17,26 @@ import java.util.List;
  */
 public class BloomFilterTest {
 
+
     public static void main(String[] args) {
         int total = 1000000;
         BloomFilter<CharSequence> charSequenceBloomFilter = BloomFilter.create(Funnels.stringFunnel(Charsets.UTF_8), total,0.0001);
-//        List<String> list = new ArrayList<>();
         for (int i = 0; i < total; i++) {
             charSequenceBloomFilter.put("" + i);
-//            list.add(""+i);
         }
-//        int count = 0;
-        System.out.println(System.currentTimeMillis());
-//        for (int i = 0; i < total + 10000; i++) {
-//            if (charSequenceBloomFilter.mightContain("" + i)) {
-//                count++;
-//            }
-////            if (list.contains("" + i)) {
-////                count++;
-////            }
-//        }
-        System.out.println(charSequenceBloomFilter.mightContain(""+1950230));
-        System.out.println(System.currentTimeMillis());
-//        System.out.println(count);
+        int existCount=0;
+        for (int i = 0; i < total; i++) {
+            if (charSequenceBloomFilter.mightContain(""+i)){
+                existCount++;
+            }
+        }
+        System.out.println(existCount);
+        int notExistCount=0;
+        for (int i = total; i < total + 10000; i++) {
+            if (charSequenceBloomFilter.mightContain("" + i)) {
+                notExistCount++;
+            }
+        }
+        System.out.println(notExistCount);
     }
 }

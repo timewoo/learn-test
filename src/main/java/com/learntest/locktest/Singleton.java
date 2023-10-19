@@ -1,4 +1,4 @@
-package LockTest;
+package com.learntest.locktest;
 
 /**
  * 单例模式
@@ -21,5 +21,10 @@ public class Singleton {
             }
         }
         return uniqueInstance;
+    }
+
+    public static void main(String[] args) {
+        Singleton uniqueInstance1 = Singleton.getUniqueInstance();
+
     }
 }
